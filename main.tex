@@ -1,0 +1,152 @@
+% プロジェクト学習中間報告書書式テンプレート ver.1.0 (utf-8)
+
+% 両面印刷する場合は `openany' を削除する
+\documentclass[openany,11pt,papersize,dvipdfm]{jsbook}
+
+% 報告書提出用スタイルファイル
+%\usepackage[final]{funpro}%最終報告書
+\usepackage[middle]{funpro}%中間報告書
+
+% 画像ファイル (EPS, EPDF, PNG) を読み込むために
+\usepackage{graphicx}
+
+\usepackage{float}
+
+\def\hissu{\bgroup\color{red}}
+\def\endhissu{\egroup}
+
+% ここから -->
+%\usepackage{calc,ifthen}
+%\newcounter{hoge}
+%\newcommand{\fake}[1]{\whiledo{\thehoge<70}{#1\stepcounter{hoge}}%
+%  \setcounter{hoge}{0}}
+% <-- ここまで 削除してもよい
+
+% 年度の指定
+\thisYear{2023}
+
+% プロジェクト名
+\jProjectName{使ってもらって学ぶフィールド指向システムデザイン~2023}
+
+% [簡易版のプロジェクト名]{正式なプロジェクト名}
+% 欧文のプロジェクト名が極端に長い（2行を超える）場合は，短い記述を
+% 任意引数として渡す．
+%\eProjectName[Making Delicious curry]{How to make delicious curry of Hakodate}
+\eProjectName{Field~Oriented~System~Design~Learning~by~Users'~Feedback~2023}
+
+% <プロジェクト番号>-<グループ名>
+\ProjectNumber{3-C}
+
+% グループ名
+\jGroupName{グループ~C（未来大生支援）}
+\eGroupName{Group~C~(FUN Student Support)}
+
+% プロジェクトリーダ      注意：学籍番号不用
+\ProjectLeader{佐々木虎太郎}{Kotaro~Sasaki}
+
+% グループリーダ      注意：学籍番号不用
+\GroupLeader  {大須賀雅也}{Masaya~Osuga}
+
+% メンバー数
+\SumOfMembers{9}
+% グループメンバ      注意：学籍番号不用
+\GroupMember  {1}{大須賀雅也}{Masaya~Osuga}
+\GroupMember  {2}{齊藤輝}{Hikaru~Saitou}
+\GroupMember  {3}{南川虎之介}{Toranosuke~Minamikawa}
+\GroupMember  {4}{鈴木利芳}{Masayoshi~Suzuki}
+\GroupMember  {5}{高橋慧流}{Satoru~Takahashi}
+
+
+
+% 指導教員
+\jadvisor{伊藤恵,南部美砂子,奥野拓,元木環,石尾隆}
+% 複数人数いる場合はカンマ(,)で区切る．カンマの前後に空白は入れない．
+\eadvisor{Kei~Ito,Misako~Nambu,Taku~Okuno,Tamaki~Motoki,Takashi~Isio}
+
+% 論文提出日
+\jdate{2023年7月21日}
+\edate{July~21, 2023}
+
+\begin{document}
+%
+% 表紙
+\maketitle
+
+%======================================================================
+%前付け
+\frontmatter
+
+% 和文概要
+\begin{jabstract}
+本プロジェクトは，フィールド調査をもとに問題を発見し，ITを用いて解決する．それによりユーザの仕事や生活をデザインし，地域や社会に貢献することを目的に活動している．また，本プロジェクトは，アジャイル開発手法を用いる．それにより，迅速で柔軟な開発を行い，短期間の開発でより効率的に成果を出すことを目標にしている．今年度は，プロジェクト内を交通グループ，小学校支援グループ，未来大生支援グループの3グループに分け，各グループがそれぞれのフィールドで活動している．本報告では未来大生支援グループについての報告を行う．本グループでは，公立はこだて未来大学に在籍している学生に対し，情報を取得しやすくすることで学生生活を効率的に送れるよう支援することを目的として活動している．この目的を達成するため，私達が実際に生活しているうえで取得しにくい情報が何かを話し合い，周りの学生にもヒアリングを行った．その結果，「HOPEやSTUDENTSに情報が分散していて目的の情報が探しづらい」という問題点が挙がり，公立はこだて未来大学の情報を一元化したアプリを作成することに決定した．このプロダクトを提案することにより，学生が欲しい情報を簡単に見つけ出せる環境を実現し，学生生活の効率性を高めることを狙う．これまで，実現可能範囲を調査するための技術検証や既存サービスの調査を行ってきた．今後は，実装する機能を確定させ，開発に必要な技術を習得し取り組んでいく予定である．
+
+% 和文キーワード
+\begin{jkeyword}
+フィールド調査，IT，スクラム，学生支援，情報一元化
+\end{jkeyword}
+\bunseki{齊藤輝}
+\end{jabstract}
+
+%英語の概要
+\begin{eabstract} Abstract in English. 
+This project identifies problems based on field research and solves them using IT. The
+project design the work and life of users and contribute to the community and society through these activities. The project will use agile development methods. The goal is to develop quickly and flexibly, thereby achieving more efficient results in a short development period. This year, the project is divided into three development groups: a transportation support group, a local media group, and a local media group, with each group working in its own field. In this report, we report on the traffic support group. In this group, the purpose of this group is to support students enrolled at Future University Hakodate by facilitating access to information, thereby enabling them to lead a more efficient student life. To achieve this goal, we discussed the challenges of obtaining information in our daily lives and conducted interviews with fellow students. As a result, we identified the issue of scattered information across HOPE and STUDENT platforms, making it difficult to find specific information. To address this, we have decided to create an application that consolidates the information available at Future University Hakodate. By proposing this product, our aim is to create an environment where students can easily find the information they need, ultimately enhancing the efficiency of their student life. So far, we have conducted technical feasibility studies and examined existing services. Going forward, our plan is to determine the required features and acquire the necessary technology for development.
+
+
+
+
+
+
+
+% 英文キーワード
+\begin{ekeyword}
+Field research, IT, Scrum, University Student Support, Centralized information
+\end{ekeyword}
+\bunseki{齊藤輝}
+\end{eabstract}
+
+\tableofcontents% 目次
+
+%======================================================================
+\mainmatter% 本文のはじまり
+
+%各章の.texファイルをここに並べる
+%ファイル名の「.tex」は省略して良い
+\include{no1}
+\include{no2}
+\include{no3}
+\include{no4}
+\include{no5}
+\include{no6}
+
+
+% 以降，付録(付属資料)であることを示す
+\begin{appendix}
+
+
+
+\chapter{活用した講義} 
+本グループがプロジェクト学習を行っていく上で，活用した講義は以下である．
+\vskip\baselineskip
+ソフトウェア設計論 I\par
+ソフトウェア設計論 I ではリスク分析やリスク対策の種類などについて学んでいたため,この講義で使用されていた資料を再確認するなどして活用した.
+\vskip\baselineskip
+ヒューマンインタフェース\par
+ヒューマンインタフェースの講義でアンケートの作成方法について紹介されていたため,この講義をもとに,アンケートを作成した.
+
+
+%付録の終わり
+\end{appendix}
+
+%======================================================================
+%\backmatter
+
+% 参考文献
+\begin{thebibliography}{3}
+\bibitem{scrumb} 西村 直人， 永瀬 美穂， 吉羽 龍太郎. \qq{SCRUM BOOT CAMP THE BOOK スクラムグループではじめるアジャイル開発}. 株式会社 翔泳社. 2020.
+\bibitem{field} 南部 美砂子．\qq{フィールドワーク入門講座 for PBL 2023年度版}． https://drive.google.com/file/d/1H6-Iepfufk80NmRY0DlYInMgRa-5zOrA/view （2023年7月14日 アクセス）
+\bibitem{scrumm} Zuzana Sochova. \qq{SCRUMMASTER THE BOOK 優れたスクラムマスターになるための極意――メタスキル，学習，心理，リーダーシップ}. 株式会社 翔泳社. 2020.
+
+\end{thebibliography}
+
+\end{document}
